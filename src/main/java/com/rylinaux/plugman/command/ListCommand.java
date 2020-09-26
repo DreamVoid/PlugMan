@@ -61,12 +61,12 @@ public class ListCommand extends AbstractCommand {
     /**
      * The main permission of the command.
      */
-    public static final String PERMISSION = "plugman.list";
+    public static final String PERMISSION = "mineblock.pluginmanager.list";
 
     /**
      * The proper usage of the command.
      */
-    public static final String USAGE = "/plugman list [-v]";
+    public static final String USAGE = "/mpm list [-v]";
 
     /**
      * The sub permissions of the command.

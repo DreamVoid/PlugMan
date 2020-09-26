@@ -53,12 +53,12 @@ public class RestartCommand extends AbstractCommand {
     /**
      * The main permission of the command.
      */
-    public static final String PERMISSION = "plugman.restart";
+    public static final String PERMISSION = "mineblock.pluginmanager.restart";
 
     /**
      * The proper usage of the command.
      */
-    public static final String USAGE = "/plugman restart <plugin|all>";
+    public static final String USAGE = "/mpm restart <plugin|all>";
 
     /**
      * The sub permissions of the command.

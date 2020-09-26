@@ -52,12 +52,12 @@ public class HelpCommand extends AbstractCommand {
     /**
      * The main permission of the command.
      */
-    public static final String PERMISSION = "plugman.help";
+    public static final String PERMISSION = "mineblock.pluginmanager.help";
 
     /**
      * The proper usage of the command.
      */
-    public static final String USAGE = "/plugman help";
+    public static final String USAGE = "/mpm help";
 
     /**
      * The sub permissions of the command.

@@ -59,12 +59,12 @@ public class DumpCommand extends AbstractCommand {
     /**
      * The main permission of the command.
      */
-    public static final String PERMISSION = "plugman.dump";
+    public static final String PERMISSION = "mineblock.pluginmanager.dump";
 
     /**
      * The proper usage of the command.
      */
-    public static final String USAGE = "/plugman dump";
+    public static final String USAGE = "/mpm dump";
 
     /**
      * The sub permissions of the command.

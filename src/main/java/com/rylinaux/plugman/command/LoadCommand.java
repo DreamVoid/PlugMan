@@ -54,12 +54,12 @@ public class LoadCommand extends AbstractCommand {
     /**
      * The main permission of the command.
      */
-    public static final String PERMISSION = "plugman.load";
+    public static final String PERMISSION = "mineblock.pluginmanager.load";
 
     /**
      * The proper usage of the command.
      */
-    public static final String USAGE = "/plugman load <plugin>";
+    public static final String USAGE = "/mpm load <plugin>";
 
     /**
      * The sub permissions of the command.

@@ -3,4 +3,4 @@
 #
 # This takes the form of a comma separated list enclosed within the brackets.
 ###
-ignored-plugins: [PlugMan]
+ignored-plugins: [MineBlockPluginManager]

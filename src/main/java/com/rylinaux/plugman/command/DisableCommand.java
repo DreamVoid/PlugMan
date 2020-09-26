@@ -53,12 +53,12 @@ public class DisableCommand extends AbstractCommand {
     /**
      * The main permission of the command.
      */
-    public static final String PERMISSION = "plugman.disable";
+    public static final String PERMISSION = "mineblock.pluginmanager.disable";
 
     /**
      * The proper usage of the command.
      */
-    public static final String USAGE = "/plugman disable <plugin|all>";
+    public static final String USAGE = "/mpm disable <plugin|all>";
 
     /**
      * The sub permissions of the command.

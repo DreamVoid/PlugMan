@@ -56,12 +56,12 @@ public class LookupCommand extends AbstractCommand {
     /**
      * The main permission of the command.
      */
-    public static final String PERMISSION = "plugman.lookup";
+    public static final String PERMISSION = "mineblock.pluginmanager.lookup";
 
     /**
      * The proper usage of the command.
      */
-    public static final String USAGE = "/plugman lookup <command>";
+    public static final String USAGE = "/mpm lookup <command>";
 
     /**
      * The sub permissions of the command.

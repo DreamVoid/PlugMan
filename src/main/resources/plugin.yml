@@ -1,93 +1,93 @@
-name: PlugMan
-main: com.rylinaux.plugman.PlugMan
+name: MineBlockPluginManager
+main: com.rylinaux.mineblock.pluginmanager.PlugMan
 version: 2.1.7
-description: Plugin manager for Bukkit servers
-author: rylinaux
+description: MineBlock Plugin manager
+author: rylinaux, DreamVoid
 api-version: 1.13
 commands:
-  plugman:
+  mpm:
     description: Manage plugins.
-    permission: plugman.help
-    usage: /plugman (help|dump)
-           /plugman list [-v]
-           /plugman check <plugin|all> [-f]
-           /plugman lookup <command>
-           /plugman (enable|disable|restart) <plugin|all>
-           /plugman (info|usage|load|reload|unload) <plugin>
+    permission: mineblock.pluginmanager.help
+    usage: /mpm (help|dump)
+           /mpm list [-v]
+           /mpm check <plugin|all> [-f]
+           /mpm lookup <command>
+           /mpm (enable|disable|restart) <plugin|all>
+           /mpm (info|usage|load|reload|unload) <plugin>
 permissions:
-  plugman.admin:
+  mineblock.pluginmanager.admin:
     description: Allows use of all PlugMan commands.
     default: op
     children:
-      plugman.update: true
-      plugman.help: true
-      plugman.list: true
-      plugman.dump: true
-      plugman.info: true
-      plugman.usage: true
-      plugman.lookup: true
-      plugman.enable: true
-      plugman.enable.all: true
-      plugman.disable: true
-      plugman.disable.all: true
-      plugman.restart: true
-      plugman.restart.all: true
-      plugman.load: true
-      plugman.reload: true
-      plugman.unload: true
-      plugman.check: true
-      plugman.check.all: true
-  plugman.update:
+      mineblock.pluginmanager.update: true
+      mineblock.pluginmanager.help: true
+      mineblock.pluginmanager.list: true
+      mineblock.pluginmanager.dump: true
+      mineblock.pluginmanager.info: true
+      mineblock.pluginmanager.usage: true
+      mineblock.pluginmanager.lookup: true
+      mineblock.pluginmanager.enable: true
+      mineblock.pluginmanager.enable.all: true
+      mineblock.pluginmanager.disable: true
+      mineblock.pluginmanager.disable.all: true
+      mineblock.pluginmanager.restart: true
+      mineblock.pluginmanager.restart.all: true
+      mineblock.pluginmanager.load: true
+      mineblock.pluginmanager.reload: true
+      mineblock.pluginmanager.unload: true
+      mineblock.pluginmanager.check: true
+      mineblock.pluginmanager.check.all: true
+  mineblock.pluginmanager.update:
     description: Allows the player to see the update alerts.
     default: op
-  plugman.help:
+  mineblock.pluginmanager.help:
     description: Allows use of the help command.
     default: op
-  plugman.list:
+  mineblock.pluginmanager.list:
     description: Allows use of the list command.
     default: op
-  plugman.dump:
+  mineblock.pluginmanager.dump:
     description: Allows use of the dump command.
     default: op
-  plugman.info:
+  mineblock.pluginmanager.info:
     description: Allows use of the info command.
     default: op
-  plugman.usage:
+  mineblock.pluginmanager.usage:
     description: Allows use of the usage command.
     default: op
-  plugman.lookup:
+  mineblock.pluginmanager.lookup:
     description: Allows use of the lookup command.
     default: op
-  plugman.enable:
+  mineblock.pluginmanager.enable:
     description: Allows use of the enable command.
     default: op
-  plugman.enable.all:
+  mineblock.pluginmanager.enable.all:
     description: Allows use of the enable all command.
     default: op
-  plugman.disable:
+  mineblock.pluginmanager.disable:
     description: Allows use of the disable command.
     default: op
-  plugman.disable.all:
+  mineblock.pluginmanager.disable.all:
     description: Allows use of the disable all command.
     default: op
-  plugman.restart:
+  mineblock.pluginmanager.restart:
     description: Allows use of the restart command.
     default: op
-  plugman.restart.all:
+  mineblock.pluginmanager.restart.all:
     description: Allows use of the restart all command.
     default: op
-  plugman.load:
+  mineblock.pluginmanager.load:
     description: Allows use of the load command.
     default: op
-  plugman.reload:
+  mineblock.pluginmanager.reload:
     description: Allows use of the reload command.
     default: op
-  plugman.unload:
+  mineblock.pluginmanager.unload:
     description: Allows use of the unload command.
     default: op
-  plugman.check:
+  mineblock.pluginmanager.check:
     description: Allows use of the check command.
     default: op
-  plugman.check.all:
+  mineblock.pluginmanager.check.all:
     description: Allows use of the check all command.
     default: op

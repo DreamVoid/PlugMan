@@ -53,12 +53,12 @@ public class UnloadCommand extends AbstractCommand {
     /**
      * The main permission of the command.
      */
-    public static final String PERMISSION = "plugman.unload";
+    public static final String PERMISSION = "mineblock.pluginmanager.unload";
 
     /**
      * The proper usage of the command.
      */
-    public static final String USAGE = "/plugman unload <plugin>";
+    public static final String USAGE = "/mpm unload <plugin>";
 
     /**
      * The sub permissions of the command.

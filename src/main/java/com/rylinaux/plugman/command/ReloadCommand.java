@@ -53,12 +53,12 @@ public class ReloadCommand extends AbstractCommand {
     /**
      * The main permission of the command.
      */
-    public static final String PERMISSION = "plugman.reload";
+    public static final String PERMISSION = "mineblock.pluginmanager.reload";
 
     /**
      * The proper usage of the command.
      */
-    public static final String USAGE = "/plugman reload <plugin|all>";
+    public static final String USAGE = "/mpm reload <plugin|all>";
 
     /**
      * The sub permissions of the command.

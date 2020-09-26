@@ -58,12 +58,12 @@ public class InfoCommand extends AbstractCommand {
     /**
      * The main permission of the command.
      */
-    public static final String PERMISSION = "plugman.info";
+    public static final String PERMISSION = "mineblock.pluginmanager.info";
 
     /**
      * The proper usage of the command.
      */
-    public static final String USAGE = "/plugman info <plugin>";
+    public static final String USAGE = "/mpm info <plugin>";
 
     /**
      * The sub permissions of the command.

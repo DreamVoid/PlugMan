@@ -53,12 +53,12 @@ public class UsageCommand extends AbstractCommand {
     /**
      * The main permission of the command.
      */
-    public static final String PERMISSION = "plugman.usage";
+    public static final String PERMISSION = "mineblock.pluginmanager.usage";
 
     /**
      * The proper usage of the command.
      */
-    public static final String USAGE = "/plugman usage <plugin>";
+    public static final String USAGE = "/mpm usage <plugin>";
 
     /**
      * The sub permissions of the command.

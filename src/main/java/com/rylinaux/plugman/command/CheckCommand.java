@@ -63,12 +63,12 @@ public class CheckCommand extends AbstractCommand {
     /**
      * The main permission of the command.
      */
-    public static final String PERMISSION = "plugman.check";
+    public static final String PERMISSION = "mineblock.pluginmanager.check";
 
     /**
      * The proper usage of the command.
      */
-    public static final String USAGE = "/plugman check <plugin>";
+    public static final String USAGE = "/mpm check <plugin>";
 
     /**
      * The sub permissions of the command.

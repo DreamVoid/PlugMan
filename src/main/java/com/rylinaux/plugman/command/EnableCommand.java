@@ -53,12 +53,12 @@ public class EnableCommand extends AbstractCommand {
     /**
      * The main permission of the command.
      */
-    public static final String PERMISSION = "plugman.enable";
+    public static final String PERMISSION = "mineblock.pluginmanager.enable";
 
     /**
      * The proper usage of the command.
      */
-    public static final String USAGE = "/plugman enable <plugin|all>";
+    public static final String USAGE = "/mpm enable <plugin|all>";
 
     /**
      * The sub permissions of the command.
