@@ -1,5 +1,5 @@
 name: MineBlockPluginManager
-main: com.rylinaux.mineblock.pluginmanager.PlugMan
+main: org.flyingteam.mineblock.plugman.PlugMan
 version: 2.1.7
 description: MineBlock Plugin manager
 author: rylinaux, DreamVoid

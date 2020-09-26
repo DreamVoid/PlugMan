@@ -4,22 +4,22 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.rylinaux</groupId>
-    <artifactId>PlugMan</artifactId>
+    <groupId>org.flyingteam.mineblock</groupId>
+    <artifactId>MineBlockPluginManager</artifactId>
     <version>2.1.7</version>
     <packaging>jar</packaging>
 
-    <name>PlugMan</name>
-    <description>Plugin manager for Bukkit servers.</description>
+    <name>MineBlockPluginManager</name>
+    <description>MineBlock plugin manager</description>
     <url>http://dev.bukkit.org/bukkit-plugins/plugman/</url>
 
     <inceptionYear>2010</inceptionYear>
 
     <developers>
         <developer>
-            <name>Ryan Clancy</name>
-            <email>rylinaux@gmail.com</email>
-            <id>rylinaux</id>
+            <name>MineBlock</name>
+            <email>service@mineblock.ml</email>
+            <id>MineBlock</id>
             <roles>
                 <role>Lead Developer</role>
             </roles>
@@ -35,7 +35,7 @@
 
     <issueManagement>
         <system>GitHub</system>
-        <url>https://github.com/rylinaux/PlugMan/issues</url>
+        <url>https://github.com/DreamVoid/MineBlockPluginManager/issues</url>
     </issueManagement>
 
     <properties>
@@ -94,7 +94,7 @@
                         <phase>process-sources</phase>
                         <configuration>
                             <includes>
-                                <include>src/main/java/com/rylinaux/*</include>
+                                <include>src/main/java/org/flyingteam/mineblock/*</include>
                             </includes>
                         </configuration>
                     </execution>
