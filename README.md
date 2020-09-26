@@ -1,3 +1,6 @@
+# MineBlockPluginManager
+基于Plugman修改，专用于MineBlock服务器
+
 <h1 align="center">PlugMan is no longer actively maintained.</h1>
 
 # PlugMan
