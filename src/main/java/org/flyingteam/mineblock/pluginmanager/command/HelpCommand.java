@@ -1,10 +1,10 @@
-package org.flyingteam.mineblock.plugman.command;
+package org.flyingteam.mineblock.pluginmanager.command;
 
 /*
  * #%L
- * PlugMan
+ * main
  * %%
- * Copyright (C) 2010 - 2014 PlugMan
+ * Copyright (C) 2010 - 2014 main
  * %%
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -26,7 +26,7 @@ package org.flyingteam.mineblock.plugman.command;
  * #L%
  */
 
-import org.flyingteam.mineblock.plugman.PlugMan;
+import org.flyingteam.mineblock.pluginmanager.main;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -85,15 +85,15 @@ public class HelpCommand extends AbstractCommand {
     public void execute(CommandSender sender, Command command, String label, String[] args) {
 
         if (!hasPermission()) {
-            sender.sendMessage(PlugMan.getInstance().getMessageFormatter().format("error.no-permission"));
+            sender.sendMessage(main.getInstance().getMessageFormatter().format("error.no-permission"));
             return;
         }
 
-        ConfigurationSection help = PlugMan.getInstance().getMessageFormatter().getMessageFile().getConfig().getConfigurationSection("help");
+        ConfigurationSection help = main.getInstance().getMessageFormatter().getMessageFile().getConfig().getConfigurationSection("help");
 
         for (String s : help.getKeys(false)) {
             if (sender.hasPermission("plugman." + s) || s.equalsIgnoreCase("header"))
-                sender.sendMessage(PlugMan.getInstance().getMessageFormatter().format(false, help.getName() + "." + s));
+                sender.sendMessage(main.getInstance().getMessageFormatter().format(false, help.getName() + "." + s));
         }
 
     }

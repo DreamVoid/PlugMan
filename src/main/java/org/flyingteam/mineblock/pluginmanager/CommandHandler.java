@@ -1,10 +1,10 @@
-package org.flyingteam.mineblock.plugman;
+package org.flyingteam.mineblock.pluginmanager;
 
 /*
  * #%L
- * PlugMan
+ * main
  * %%
- * Copyright (C) 2010 - 2014 PlugMan
+ * Copyright (C) 2010 - 2014 main
  * %%
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -26,7 +26,7 @@ package org.flyingteam.mineblock.plugman;
  * #L%
  */
 
-import org.flyingteam.mineblock.plugman.command.*;
+import org.flyingteam.mineblock.pluginmanager.command.*;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -37,7 +37,7 @@ import org.bukkit.command.CommandSender;
  *
  * @author rylinaux
  */
-public class PlugManCommandHandler implements CommandExecutor {
+public class CommandHandler implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {

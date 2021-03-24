@@ -6,7 +6,7 @@
 # With new updates, this is subject to change and previous versions might not display information properly. Changes will be noted in the changelog.
 ###
 
-prefix: ''
+prefix: '[MineBlock] '
 check:
   header: '&9Retrieving plugin versions...'
   not-found: '&9Plugin not installed - latest available version is "{0}".'
@@ -41,7 +41,7 @@ error:
     description: '&a描述: {0}'
     usage: '&e用法: {0}'
 help:
-  header: '&6&lMine&f&lBlock&a插件管理&6帮助页面'
+  header: '&6&lMine&f&lBlock&a插件管理&6帮助菜单'
   help: '&6/mpm help&f: 显示此帮助.'
   list: '&6/mpm list [-v]&f: 列出所有插件 (-v 显示版本).'
   dump: '&6/mpm dump&f: 输出插件信息到文件.'
@@ -72,7 +72,7 @@ load:
   loaded: '&a{0} 已加载并已启用.'
   plugin-dir: '&c找不到插件目录.'
 lookup:
-  found: '&9/{0}已由{1}注册.'
+  found: '&6/{0}已由{1}注册.'
   not-found: '&c命令"/{0}"未被任何插件的plugin.yml注册'
 reload:
   all: '&a所有插件已重载.'
@@ -86,4 +86,4 @@ unload:
 updater:
   available: '&aA new update is available'
 usage:
-  usage: '&9命令: &7{0}'
+  usage: '&6命令: &7{0}'

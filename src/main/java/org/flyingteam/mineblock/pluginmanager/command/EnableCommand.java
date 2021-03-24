@@ -1,10 +1,10 @@
-package org.flyingteam.mineblock.plugman.command;
+package org.flyingteam.mineblock.pluginmanager.command;
 
 /*
  * #%L
- * PlugMan
+ * main
  * %%
- * Copyright (C) 2010 - 2014 PlugMan
+ * Copyright (C) 2010 - 2014 main
  * %%
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -26,57 +26,56 @@ package org.flyingteam.mineblock.plugman.command;
  * #L%
  */
 
-import org.flyingteam.mineblock.plugman.PlugMan;
-import org.flyingteam.mineblock.plugman.util.PluginUtil;
-import org.flyingteam.mineblock.plugman.util.StringUtil;
+import org.flyingteam.mineblock.pluginmanager.main;
+import org.flyingteam.mineblock.pluginmanager.util.PluginUtil;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.Plugin;
 
 /**
- * Command that loads plugin(s).
+ * Command that enables plugin(s).
  *
  * @author rylinaux
  */
-public class LoadCommand extends AbstractCommand {
+public class EnableCommand extends AbstractCommand {
 
     /**
      * The name of the command.
      */
-    public static final String NAME = "Load";
+    public static final String NAME = "Enable";
 
     /**
      * The description of the command.
      */
-    public static final String DESCRIPTION = "Load a plugin.";
+    public static final String DESCRIPTION = "Enable a plugin.";
 
     /**
      * The main permission of the command.
      */
-    public static final String PERMISSION = "mineblock.pluginmanager.load";
+    public static final String PERMISSION = "mineblock.pluginmanager.enable";
 
     /**
      * The proper usage of the command.
      */
-    public static final String USAGE = "/mpm load <plugin>";
+    public static final String USAGE = "/mpm enable <plugin|all>";
 
     /**
      * The sub permissions of the command.
      */
-    public static final String[] SUB_PERMISSIONS = {""};
+    public static final String[] SUB_PERMISSIONS = {"all"};
 
     /**
      * Construct out object.
      *
      * @param sender the command sender
      */
-    public LoadCommand(CommandSender sender) {
+    public EnableCommand(CommandSender sender) {
         super(sender, NAME, DESCRIPTION, PERMISSION, SUB_PERMISSIONS, USAGE);
     }
 
     /**
-     * Execute the command.
+     * Execute the command
      *
      * @param sender  the sender of the command
      * @param command the command being done
@@ -87,31 +86,48 @@ public class LoadCommand extends AbstractCommand {
     public void execute(CommandSender sender, Command command, String label, String[] args) {
 
         if (!hasPermission()) {
-            sender.sendMessage(PlugMan.getInstance().getMessageFormatter().format("error.no-permission"));
+            sender.sendMessage(main.getInstance().getMessageFormatter().format("error.no-permission"));
             return;
         }
 
         if (args.length < 2) {
-            sender.sendMessage(PlugMan.getInstance().getMessageFormatter().format("error.specify-plugin"));
+            sender.sendMessage(main.getInstance().getMessageFormatter().format("error.specify-plugin"));
             sendUsage();
             return;
         }
 
-        Plugin potential = PluginUtil.getPluginByName(args, 1);
-
-        if (potential != null) {
-            sender.sendMessage(PlugMan.getInstance().getMessageFormatter().format("load.already-loaded", potential.getName()));
+        if (args[1].equalsIgnoreCase("all") || args[1].equalsIgnoreCase("*")) {
+            if (hasPermission("all")) {
+                PluginUtil.enableAll();
+                sender.sendMessage(main.getInstance().getMessageFormatter().format("enable.all"));
+            } else {
+                sender.sendMessage(main.getInstance().getMessageFormatter().format("error.no-permission"));
+            }
             return;
         }
 
-        String name = StringUtil.consolidateStrings(args, 1);
+        Plugin target = PluginUtil.getPluginByName(args, 1);
 
-        if (PluginUtil.isIgnored(name)) {
-            sender.sendMessage(PlugMan.getInstance().getMessageFormatter().format("error.ignored"));
+        if (target == null) {
+            sender.sendMessage(main.getInstance().getMessageFormatter().format("error.invalid-plugin"));
+            sendUsage();
             return;
         }
 
-        sender.sendMessage(PluginUtil.load(name));
+        if (PluginUtil.isIgnored(target)) {
+            sender.sendMessage(main.getInstance().getMessageFormatter().format("error.ignored"));
+            return;
+        }
+
+        if (target.isEnabled()) {
+            sender.sendMessage(main.getInstance().getMessageFormatter().format("enable.already-enabled", target.getName()));
+            return;
+        }
+
+        PluginUtil.enable(target);
+
+        sender.sendMessage(main.getInstance().getMessageFormatter().format("enable.enabled", target.getName()));
 
     }
+
 }

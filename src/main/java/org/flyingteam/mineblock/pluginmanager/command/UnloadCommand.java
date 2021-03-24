@@ -1,10 +1,10 @@
-package org.flyingteam.mineblock.plugman.command;
+package org.flyingteam.mineblock.pluginmanager.command;
 
 /*
  * #%L
- * PlugMan
+ * main
  * %%
- * Copyright (C) 2010 - 2014 PlugMan
+ * Copyright (C) 2010 - 2014 main
  * %%
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -26,8 +26,8 @@ package org.flyingteam.mineblock.plugman.command;
  * #L%
  */
 
-import org.flyingteam.mineblock.plugman.PlugMan;
-import org.flyingteam.mineblock.plugman.util.PluginUtil;
+import org.flyingteam.mineblock.pluginmanager.main;
+import org.flyingteam.mineblock.pluginmanager.util.PluginUtil;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -86,12 +86,12 @@ public class UnloadCommand extends AbstractCommand {
     public void execute(CommandSender sender, Command command, String label, String[] args) {
 
         if (!hasPermission()) {
-            sender.sendMessage(PlugMan.getInstance().getMessageFormatter().format("error.no-permission"));
+            sender.sendMessage(main.getInstance().getMessageFormatter().format("error.no-permission"));
             return;
         }
 
         if (args.length < 2) {
-            sender.sendMessage(PlugMan.getInstance().getMessageFormatter().format("error.specify-plugin"));
+            sender.sendMessage(main.getInstance().getMessageFormatter().format("error.specify-plugin"));
             sendUsage();
             return;
         }
@@ -99,13 +99,13 @@ public class UnloadCommand extends AbstractCommand {
         Plugin target = PluginUtil.getPluginByName(args, 1);
 
         if (target == null) {
-            sender.sendMessage(PlugMan.getInstance().getMessageFormatter().format("error.invalid-plugin"));
+            sender.sendMessage(main.getInstance().getMessageFormatter().format("error.invalid-plugin"));
             sendUsage();
             return;
         }
 
         if (PluginUtil.isIgnored(target)) {
-            sender.sendMessage(PlugMan.getInstance().getMessageFormatter().format("error.ignored"));
+            sender.sendMessage(main.getInstance().getMessageFormatter().format("error.ignored"));
             return;
         }
 

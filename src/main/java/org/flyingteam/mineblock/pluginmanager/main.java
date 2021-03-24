@@ -1,10 +1,10 @@
-package org.flyingteam.mineblock.plugman;
+package org.flyingteam.mineblock.pluginmanager;
 
 /*
  * #%L
- * PlugMan
+ * main
  * %%
- * Copyright (C) 2010 - 2014 PlugMan
+ * Copyright (C) 2010 - 2014 main
  * %%
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -26,7 +26,7 @@ package org.flyingteam.mineblock.plugman;
  * #L%
  */
 
-import org.flyingteam.mineblock.plugman.messaging.MessageFormatter;
+import org.flyingteam.mineblock.pluginmanager.messaging.MessageFormatter;
 
 import java.util.List;
 
@@ -37,12 +37,12 @@ import org.bukkit.plugin.java.JavaPlugin;
  *
  * @author rylinaux
  */
-public class PlugMan extends JavaPlugin {
+public class main extends JavaPlugin {
 
     /**
      * The instance of the plugin
      */
-    private static PlugMan instance = null;
+    private static main instance = null;
 
     /**
      * List of plugins to ignore, partially.
@@ -61,8 +61,8 @@ public class PlugMan extends JavaPlugin {
 
         messageFormatter = new MessageFormatter();
 
-        this.getCommand("mpm").setExecutor(new PlugManCommandHandler());
-        this.getCommand("mpm").setTabCompleter(new PlugManTabCompleter());
+        this.getCommand("mpm").setExecutor(new CommandHandler());
+        this.getCommand("mpm").setTabCompleter(new PMTabCompleter());
 
         initConfig();
 
@@ -88,7 +88,7 @@ public class PlugMan extends JavaPlugin {
      *
      * @return the instance of the plugin
      */
-    public static PlugMan getInstance() {
+    public static main getInstance() {
         return instance;
     }
 

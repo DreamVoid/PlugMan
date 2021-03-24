@@ -1,10 +1,10 @@
-package org.flyingteam.mineblock.plugman.command;
+package org.flyingteam.mineblock.pluginmanager.command;
 
 /*
  * #%L
- * PlugMan
+ * main
  * %%
- * Copyright (C) 2010 - 2014 PlugMan
+ * Copyright (C) 2010 - 2014 main
  * %%
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -27,8 +27,8 @@ package org.flyingteam.mineblock.plugman.command;
  */
 
 import com.google.common.base.Joiner;
-import org.flyingteam.mineblock.plugman.PlugMan;
-import org.flyingteam.mineblock.plugman.util.PluginUtil;
+import org.flyingteam.mineblock.pluginmanager.main;
+import org.flyingteam.mineblock.pluginmanager.util.PluginUtil;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -88,12 +88,12 @@ public class LookupCommand extends AbstractCommand {
     public void execute(CommandSender sender, Command command, String label, String[] args) {
 
         if (!hasPermission()) {
-            sender.sendMessage(PlugMan.getInstance().getMessageFormatter().format("error.no-permission"));
+            sender.sendMessage(main.getInstance().getMessageFormatter().format("error.no-permission"));
             return;
         }
 
         if (args.length < 2) {
-            sender.sendMessage(PlugMan.getInstance().getMessageFormatter().format("error.specify-command"));
+            sender.sendMessage(main.getInstance().getMessageFormatter().format("error.specify-command"));
             sendUsage();
             return;
         }
@@ -107,11 +107,11 @@ public class LookupCommand extends AbstractCommand {
         List<String> plugins = PluginUtil.findByCommand(commandName);
 
         if (plugins.isEmpty()) {
-            sender.sendMessage(PlugMan.getInstance().getMessageFormatter().format("lookup.not-found", commandName));
+            sender.sendMessage(main.getInstance().getMessageFormatter().format("lookup.not-found", commandName));
             return;
         }
 
-        sender.sendMessage(PlugMan.getInstance().getMessageFormatter().format("lookup.found", commandName, Joiner.on(", ").join(plugins)));
+        sender.sendMessage(main.getInstance().getMessageFormatter().format("lookup.found", commandName, Joiner.on(", ").join(plugins)));
 
     }
 }

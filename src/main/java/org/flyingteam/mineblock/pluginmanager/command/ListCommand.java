@@ -1,10 +1,10 @@
-package org.flyingteam.mineblock.plugman.command;
+package org.flyingteam.mineblock.pluginmanager.command;
 
 /*
  * #%L
- * PlugMan
+ * main
  * %%
- * Copyright (C) 2010 - 2014 PlugMan
+ * Copyright (C) 2010 - 2014 main
  * %%
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -26,51 +26,59 @@ package org.flyingteam.mineblock.plugman.command;
  * #L%
  */
 
-import org.flyingteam.mineblock.plugman.PlugMan;
-import org.flyingteam.mineblock.plugman.util.PluginUtil;
+import com.google.common.base.Joiner;
+import com.google.common.collect.Lists;
 
+import org.flyingteam.mineblock.pluginmanager.main;
+import org.flyingteam.mineblock.pluginmanager.util.FlagUtil;
+import org.flyingteam.mineblock.pluginmanager.util.PluginUtil;
+
+import java.util.Collections;
+import java.util.List;
+
+import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.Plugin;
 
 /**
- * Command that reloads plugin(s).
+ * Command that lists plugins.
  *
  * @author rylinaux
  */
-public class ReloadCommand extends AbstractCommand {
+public class ListCommand extends AbstractCommand {
 
     /**
      * The name of the command.
      */
-    public static final String NAME = "Reload";
+    public static final String NAME = "List";
 
     /**
      * The description of the command.
      */
-    public static final String DESCRIPTION = "Reload a plugin.";
+    public static final String DESCRIPTION = "List all plugins.";
 
     /**
      * The main permission of the command.
      */
-    public static final String PERMISSION = "mineblock.pluginmanager.reload";
+    public static final String PERMISSION = "mineblock.pluginmanager.list";
 
     /**
      * The proper usage of the command.
      */
-    public static final String USAGE = "/mpm reload <plugin|all>";
+    public static final String USAGE = "/mpm list [-v]";
 
     /**
      * The sub permissions of the command.
      */
-    public static final String[] SUB_PERMISSIONS = {"all"};
+    public static final String[] SUB_PERMISSIONS = {""};
 
     /**
      * Construct out object.
      *
      * @param sender the command sender
      */
-    public ReloadCommand(CommandSender sender) {
+    public ListCommand(CommandSender sender) {
         super(sender, NAME, DESCRIPTION, PERMISSION, SUB_PERMISSIONS, USAGE);
     }
 
@@ -86,42 +94,24 @@ public class ReloadCommand extends AbstractCommand {
     public void execute(CommandSender sender, Command command, String label, String[] args) {
 
         if (!hasPermission()) {
-            sender.sendMessage(PlugMan.getInstance().getMessageFormatter().format("error.no-permission"));
+            sender.sendMessage(main.getInstance().getMessageFormatter().format("error.no-permission"));
             return;
         }
 
-        if (args.length < 2) {
-            sender.sendMessage(PlugMan.getInstance().getMessageFormatter().format("error.specify-plugin"));
-            sendUsage();
-            return;
+        boolean includeVersions = FlagUtil.hasFlag(args, 'v');
+
+        List<String> pluginList = Lists.newArrayList();
+
+        for (Plugin plugin : Bukkit.getPluginManager().getPlugins()) {
+            pluginList.add(PluginUtil.getFormattedName(plugin, includeVersions));
         }
 
-        if (args[1].equalsIgnoreCase("all") || args[1].equalsIgnoreCase("*")) {
-            if (hasPermission("all")) {
-                PluginUtil.reloadAll();
-                sender.sendMessage(PlugMan.getInstance().getMessageFormatter().format("reload.all"));
-            } else {
-                sender.sendMessage(PlugMan.getInstance().getMessageFormatter().format("error.no-permission"));
-            }
-            return;
-        }
+        Collections.sort(pluginList, String.CASE_INSENSITIVE_ORDER);
 
-        Plugin target = PluginUtil.getPluginByName(args, 1);
+        String plugins = Joiner.on(", ").join(pluginList);
 
-        if (target == null) {
-            sender.sendMessage(PlugMan.getInstance().getMessageFormatter().format("error.invalid-plugin"));
-            sendUsage();
-            return;
-        }
-
-        if (PluginUtil.isIgnored(target)) {
-            sender.sendMessage(PlugMan.getInstance().getMessageFormatter().format("error.ignored"));
-            return;
-        }
-
-        PluginUtil.reload(target);
-
-        sender.sendMessage(PlugMan.getInstance().getMessageFormatter().format("reload.reloaded", target.getName()));
+        sender.sendMessage(main.getInstance().getMessageFormatter().format("list.list", pluginList.size(), plugins));
 
     }
+
 }

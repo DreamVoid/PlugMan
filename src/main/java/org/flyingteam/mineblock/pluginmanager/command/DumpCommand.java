@@ -1,10 +1,10 @@
-package org.flyingteam.mineblock.plugman.command;
+package org.flyingteam.mineblock.pluginmanager.command;
 
 /*
  * #%L
- * PlugMan
+ * main
  * %%
- * Copyright (C) 2010 - 2014 PlugMan
+ * Copyright (C) 2010 - 2014 main
  * %%
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -27,8 +27,8 @@ package org.flyingteam.mineblock.plugman.command;
  */
 
 
-import org.flyingteam.mineblock.plugman.PlugMan;
-import org.flyingteam.mineblock.plugman.util.PluginUtil;
+import org.flyingteam.mineblock.pluginmanager.main;
+import org.flyingteam.mineblock.pluginmanager.util.PluginUtil;
 
 import java.io.File;
 import java.io.IOException;
@@ -92,11 +92,11 @@ public class DumpCommand extends AbstractCommand {
     public void execute(CommandSender sender, Command command, String label, String[] args) {
 
         if (!hasPermission()) {
-            sender.sendMessage(PlugMan.getInstance().getMessageFormatter().format("error.no-permission"));
+            sender.sendMessage(main.getInstance().getMessageFormatter().format("error.no-permission"));
             return;
         }
 
-        File dumpFile = new File(PlugMan.getInstance().getDataFolder(), "versions.txt");
+        File dumpFile = new File(main.getInstance().getDataFolder(), "versions.txt");
 
         PrintWriter writer = null;
 
@@ -107,9 +107,9 @@ public class DumpCommand extends AbstractCommand {
             writer = new PrintWriter(dumpFile);
             for (String plugin : plugins)
                 writer.println(plugin);
-            sender.sendMessage(PlugMan.getInstance().getMessageFormatter().format("dump.dumped", dumpFile.getName()));
+            sender.sendMessage(main.getInstance().getMessageFormatter().format("dump.dumped", dumpFile.getName()));
         } catch (IOException e) {
-            sender.sendMessage(PlugMan.getInstance().getMessageFormatter().format("dump.error"));
+            sender.sendMessage(main.getInstance().getMessageFormatter().format("dump.error"));
             e.printStackTrace();
         } finally {
             if (writer != null)

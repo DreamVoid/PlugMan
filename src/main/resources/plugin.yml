@@ -1,13 +1,15 @@
 name: MineBlockPluginManager
-main: org.flyingteam.mineblock.plugman.PlugMan
+main: org.flyingteam.mineblock.pluginmanager.main
 version: 2.1.7
-description: MineBlock Plugin manager
-author: rylinaux, DreamVoid
+description: MineBlock 插件管理
+prefix: MineBlockPlugin
+website: www.mineblock.cc
+author: MineBlock Team.
 api-version: 1.13
 commands:
   mpm:
-    description: Manage plugins.
-    permission: mineblock.pluginmanager.help
+    description: 插件主命令
+    permission: mineblock.pluginmanager.use
     usage: /mpm (help|dump)
            /mpm list [-v]
            /mpm check <plugin|all> [-f]
@@ -16,7 +18,7 @@ commands:
            /mpm (info|usage|load|reload|unload) <plugin>
 permissions:
   mineblock.pluginmanager.admin:
-    description: Allows use of all PlugMan commands.
+    description: 允许使用所有指令
     default: op
     children:
       mineblock.pluginmanager.update: true

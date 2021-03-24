@@ -1,10 +1,10 @@
-package org.flyingteam.mineblock.plugman.messaging;
+package org.flyingteam.mineblock.pluginmanager.util;
 
 /*
  * #%L
- * PlugMan
+ * main
  * %%
- * Copyright (C) 2010 - 2015 PlugMan
+ * Copyright (C) 2010 - 2014 main
  * %%
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -26,49 +26,27 @@ package org.flyingteam.mineblock.plugman.messaging;
  * #L%
  */
 
-import java.io.InputStreamReader;
-
-import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.configuration.file.YamlConfiguration;
-
 /**
- * Class that allows reading from a YAML file embedded in the JAR.
+ * Utilities for String manipulation.
  *
  * @author rylinaux
  */
-public class MessageFile {
+public class StringUtil {
 
     /**
-     * The configuration.
-     */
-    private FileConfiguration config = null;
-
-    /**
-     * Construct the object.
+     * Returns an array of Strings as a single String.
      *
-     * @param name the name of the file.
+     * @param args  the array
+     * @param start the index to start at
+     * @return the array as a String
      */
-    public MessageFile(String name) {
-        this.config = YamlConfiguration.loadConfiguration(new InputStreamReader(this.getClass().getClassLoader().getResourceAsStream(name)));
-    }
-
-    /**
-     * Get the FileConfiguration.
-     *
-     * @return the FileConfiguration.
-     */
-    public FileConfiguration getConfig() {
-        return config;
-    }
-
-    /**
-     * Get a key from the file.
-     *
-     * @param key the key.
-     * @return the value.
-     */
-    public String get(String key) {
-        return config.getString(key);
+    public static String consolidateStrings(String[] args, int start) {
+        String ret = args[start];
+        if (args.length > (start + 1)) {
+            for (int i = (start + 1); i < args.length; i++)
+                ret = ret + " " + args[i];
+        }
+        return ret;
     }
 
 }

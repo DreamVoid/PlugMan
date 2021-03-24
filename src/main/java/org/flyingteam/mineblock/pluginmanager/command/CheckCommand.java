@@ -1,10 +1,10 @@
-package org.flyingteam.mineblock.plugman.command;
+package org.flyingteam.mineblock.pluginmanager.command;
 
 /*
  * #%L
- * PlugMan
+ * main
  * %%
- * Copyright (C) 2010 - 2015 PlugMan
+ * Copyright (C) 2010 - 2015 main
  * %%
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -26,12 +26,12 @@ package org.flyingteam.mineblock.plugman.command;
  * #L%
  */
 
-import org.flyingteam.mineblock.plugman.PlugMan;
-import org.flyingteam.mineblock.plugman.util.SpiGetUtil;
-import org.flyingteam.mineblock.plugman.util.FlagUtil;
-import org.flyingteam.mineblock.plugman.util.StringUtil;
-import org.flyingteam.mineblock.plugman.util.ThreadUtil;
-import org.flyingteam.mineblock.plugman.pojo.UpdateResult;
+import org.flyingteam.mineblock.pluginmanager.main;
+import org.flyingteam.mineblock.pluginmanager.util.SpiGetUtil;
+import org.flyingteam.mineblock.pluginmanager.util.FlagUtil;
+import org.flyingteam.mineblock.pluginmanager.util.StringUtil;
+import org.flyingteam.mineblock.pluginmanager.util.ThreadUtil;
+import org.flyingteam.mineblock.pluginmanager.pojo.UpdateResult;
 
 import java.io.File;
 import java.io.IOException;
@@ -95,12 +95,12 @@ public class CheckCommand extends AbstractCommand {
     public void execute(final CommandSender sender, final Command command, final String label, final String[] args) {
 
         if (!hasPermission()) {
-            sender.sendMessage(PlugMan.getInstance().getMessageFormatter().format("error.no-permission"));
+            sender.sendMessage(main.getInstance().getMessageFormatter().format("error.no-permission"));
             return;
         }
 
         if (args.length < 2) {
-            sender.sendMessage(PlugMan.getInstance().getMessageFormatter().format("error.specify-plugin"));
+            sender.sendMessage(main.getInstance().getMessageFormatter().format("error.specify-plugin"));
             sendUsage();
             return;
         }
@@ -111,7 +111,7 @@ public class CheckCommand extends AbstractCommand {
 
             if (hasPermission("all")) {
 
-                sender.sendMessage(PlugMan.getInstance().getMessageFormatter().format("check.header"));
+                sender.sendMessage(main.getInstance().getMessageFormatter().format("check.header"));
 
                 ThreadUtil.async(new Runnable() {
 
@@ -140,7 +140,7 @@ public class CheckCommand extends AbstractCommand {
 
                         if (toFile) {
 
-                            File outFile = new File(PlugMan.getInstance().getDataFolder(), "updates.txt");
+                            File outFile = new File(main.getInstance().getDataFolder(), "updates.txt");
 
                             PrintWriter writer = null;
 
@@ -165,16 +165,16 @@ public class CheckCommand extends AbstractCommand {
                                 }
                             }
 
-                            sender.sendMessage(PlugMan.getInstance().getMessageFormatter().format("check.file-done", outFile.getPath()));
+                            sender.sendMessage(main.getInstance().getMessageFormatter().format("check.file-done", outFile.getPath()));
 
                         } else {
 
                             ThreadUtil.sync(new Runnable() {
                                 @Override
                                 public void run() {
-                                    sender.sendMessage(PlugMan.getInstance().getMessageFormatter().format("check.up-to-date-player", upToDate.toString()));
-                                    sender.sendMessage(PlugMan.getInstance().getMessageFormatter().format("check.out-of-date-player", outOfDate.toString()));
-                                    sender.sendMessage(PlugMan.getInstance().getMessageFormatter().format("check.unknown-player", unknown.toString()));
+                                    sender.sendMessage(main.getInstance().getMessageFormatter().format("check.up-to-date-player", upToDate.toString()));
+                                    sender.sendMessage(main.getInstance().getMessageFormatter().format("check.out-of-date-player", outOfDate.toString()));
+                                    sender.sendMessage(main.getInstance().getMessageFormatter().format("check.unknown-player", unknown.toString()));
                                 }
                             });
 
@@ -186,7 +186,7 @@ public class CheckCommand extends AbstractCommand {
 
 
             } else {
-                sender.sendMessage(PlugMan.getInstance().getMessageFormatter().format("error.no-permission"));
+                sender.sendMessage(main.getInstance().getMessageFormatter().format("error.no-permission"));
             }
 
             return;
@@ -195,7 +195,7 @@ public class CheckCommand extends AbstractCommand {
 
         final String pluginName = StringUtil.consolidateStrings(args, 1).replaceAll(" ", "+").replace("-[a-zA-Z]", "");
 
-        sender.sendMessage(PlugMan.getInstance().getMessageFormatter().format("check.header"));
+        sender.sendMessage(main.getInstance().getMessageFormatter().format("check.header"));
 
         ThreadUtil.async(new Runnable() {
 
@@ -210,16 +210,16 @@ public class CheckCommand extends AbstractCommand {
                     public void run() {
                         switch (result.getType()) {
                             case NOT_INSTALLED:
-                                sender.sendMessage(PlugMan.getInstance().getMessageFormatter().format("check.not-found", result.getLatestVersion()));
+                                sender.sendMessage(main.getInstance().getMessageFormatter().format("check.not-found", result.getLatestVersion()));
                                 break;
                             case OUT_OF_DATE:
-                                sender.sendMessage(PlugMan.getInstance().getMessageFormatter().format("check.out-of-date", result.getCurrentVersion(), result.getLatestVersion()));
+                                sender.sendMessage(main.getInstance().getMessageFormatter().format("check.out-of-date", result.getCurrentVersion(), result.getLatestVersion()));
                                 break;
                             case UP_TO_DATE:
-                                sender.sendMessage(PlugMan.getInstance().getMessageFormatter().format("check.up-to-date", result.getCurrentVersion()));
+                                sender.sendMessage(main.getInstance().getMessageFormatter().format("check.up-to-date", result.getCurrentVersion()));
                                 break;
                             default:
-                                sender.sendMessage(PlugMan.getInstance().getMessageFormatter().format("check.not-found-spigot"));
+                                sender.sendMessage(main.getInstance().getMessageFormatter().format("check.not-found-spigot"));
                         }
                     }
 

@@ -1,10 +1,10 @@
-package org.flyingteam.mineblock.plugman.pojo;
+package org.flyingteam.mineblock.pluginmanager.pojo;
 
 /*
  * #%L
- * PlugMan
+ * main
  * %%
- * Copyright (C) 2010 - 2015 PlugMan
+ * Copyright (C) 2010 - 2015 main
  * %%
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal

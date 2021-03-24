@@ -1,10 +1,10 @@
-package org.flyingteam.mineblock.plugman.util;
+package org.flyingteam.mineblock.pluginmanager.util;
 
 /*
  * #%L
- * PlugMan
+ * main
  * %%
- * Copyright (C) 2010 - 2015 PlugMan
+ * Copyright (C) 2010 - 2015 main
  * %%
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -30,7 +30,7 @@ import java.io.IOException;
 import java.util.Map;
 import java.util.TreeMap;
 
-import org.flyingteam.mineblock.plugman.pojo.UpdateResult;
+import org.flyingteam.mineblock.pluginmanager.pojo.UpdateResult;
 import org.apache.commons.io.IOUtils;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -119,7 +119,7 @@ public class SpiGetUtil {
         HttpClient client = HttpClients.createMinimal();
 
         HttpGet get = new HttpGet(API_BASE_URL + "search/resources/" + name + "?field=name&fields=id%2Cname");
-        get.setHeader("User-Agent", "PlugMan");
+        get.setHeader("User-Agent", "main");
 
         try {
 
@@ -161,7 +161,7 @@ public class SpiGetUtil {
         HttpClient client = HttpClients.createMinimal();
 
         HttpGet get = new HttpGet(API_BASE_URL + "/resources/" + id + "/versions?sort=-releaseDate");
-        get.setHeader("User-Agent", "PlugMan");
+        get.setHeader("User-Agent", "main");
 
         try {
 

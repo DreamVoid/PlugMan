@@ -1,10 +1,10 @@
-package org.flyingteam.mineblock.plugman.util;
+package org.flyingteam.mineblock.pluginmanager.util;
 
 /*
  * #%L
- * PlugMan
+ * main
  * %%
- * Copyright (C) 2010 - 2015 PlugMan
+ * Copyright (C) 2010 - 2015 main
  * %%
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -26,7 +26,7 @@ package org.flyingteam.mineblock.plugman.util;
  * #L%
  */
 
-import org.flyingteam.mineblock.plugman.PlugMan;
+import org.flyingteam.mineblock.pluginmanager.main;
 
 import org.bukkit.Bukkit;
 
@@ -43,7 +43,7 @@ public class ThreadUtil {
      * @param runnable the task.
      */
     public static void async(Runnable runnable) {
-        Bukkit.getScheduler().runTaskAsynchronously(PlugMan.getInstance(), runnable);
+        Bukkit.getScheduler().runTaskAsynchronously(main.getInstance(), runnable);
     }
 
     /**
@@ -52,7 +52,7 @@ public class ThreadUtil {
      * @param runnable the task.
      */
     public static void sync(Runnable runnable) {
-        Bukkit.getScheduler().runTask(PlugMan.getInstance(), runnable);
+        Bukkit.getScheduler().runTask(main.getInstance(), runnable);
     }
 
 }

@@ -1,10 +1,10 @@
-package org.flyingteam.mineblock.plugman.command;
+package org.flyingteam.mineblock.pluginmanager.command;
 
 /*
  * #%L
- * PlugMan
+ * main
  * %%
- * Copyright (C) 2010 - 2014 PlugMan
+ * Copyright (C) 2010 - 2014 main
  * %%
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -26,51 +26,56 @@ package org.flyingteam.mineblock.plugman.command;
  * #L%
  */
 
-import org.flyingteam.mineblock.plugman.PlugMan;
-import org.flyingteam.mineblock.plugman.util.PluginUtil;
+import com.google.common.base.Joiner;
 
+import org.flyingteam.mineblock.pluginmanager.main;
+import org.flyingteam.mineblock.pluginmanager.util.PluginUtil;
+
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.Plugin;
 
+import java.util.List;
+
 /**
- * Command that restarts plugin(s).
+ * Command that displays information on a plugin.
  *
  * @author rylinaux
  */
-public class RestartCommand extends AbstractCommand {
+public class InfoCommand extends AbstractCommand {
 
     /**
      * The name of the command.
      */
-    public static final String NAME = "Restart";
+    public static final String NAME = "Info";
 
     /**
      * The description of the command.
      */
-    public static final String DESCRIPTION = "Restart a plugin.";
+    public static final String DESCRIPTION = "View information on a plugin.";
 
     /**
      * The main permission of the command.
      */
-    public static final String PERMISSION = "mineblock.pluginmanager.restart";
+    public static final String PERMISSION = "mineblock.pluginmanager.info";
 
     /**
      * The proper usage of the command.
      */
-    public static final String USAGE = "/mpm restart <plugin|all>";
+    public static final String USAGE = "/mpm info <plugin>";
 
     /**
      * The sub permissions of the command.
      */
-    public static final String[] SUB_PERMISSIONS = {"all"};
+    public static final String[] SUB_PERMISSIONS = {""};
 
     /**
      * Construct out object.
      *
      * @param sender the command sender
      */
-    public RestartCommand(CommandSender sender) {
+    public InfoCommand(CommandSender sender) {
         super(sender, NAME, DESCRIPTION, PERMISSION, SUB_PERMISSIONS, USAGE);
     }
 
@@ -86,44 +91,37 @@ public class RestartCommand extends AbstractCommand {
     public void execute(CommandSender sender, Command command, String label, String[] args) {
 
         if (!hasPermission()) {
-            sender.sendMessage(PlugMan.getInstance().getMessageFormatter().format("error.no-permission"));
+            sender.sendMessage(main.getInstance().getMessageFormatter().format("error.no-permission"));
             return;
         }
 
         if (args.length < 2) {
-            sender.sendMessage(PlugMan.getInstance().getMessageFormatter().format("error.specify-plugin"));
+            sender.sendMessage(main.getInstance().getMessageFormatter().format("error.specify-plugin"));
             sendUsage();
-            return;
-        }
-
-        if (args[1].equalsIgnoreCase("all") || args[1].equalsIgnoreCase("*")) {
-            if (hasPermission("all")) {
-                PluginUtil.disableAll();
-                PluginUtil.enableAll();
-                sender.sendMessage(PlugMan.getInstance().getMessageFormatter().format("restart.all"));
-            } else {
-                sender.sendMessage(PlugMan.getInstance().getMessageFormatter().format("error.no-permission"));
-            }
             return;
         }
 
         Plugin target = PluginUtil.getPluginByName(args, 1);
 
         if (target == null) {
-            sender.sendMessage(PlugMan.getInstance().getMessageFormatter().format("error.invalid-plugin"));
+            sender.sendMessage(main.getInstance().getMessageFormatter().format("error.invalid-plugin"));
             sendUsage();
             return;
         }
 
-        if (PluginUtil.isIgnored(target)) {
-            sender.sendMessage(PlugMan.getInstance().getMessageFormatter().format("error.ignored"));
-            return;
-        }
+        String name = target.getName();
+        String version = target.getDescription().getVersion();
+        String authors = Joiner.on(", ").join(target.getDescription().getAuthors());
+        String status = target.isEnabled() ? ChatColor.GREEN + "Enabled" : ChatColor.RED + "Disabled";
+        List<String> dependList = target.getDescription().getDepend();
+        List<String> softdependList = target.getDescription().getSoftDepend();
 
-        PluginUtil.disable(target);
-        PluginUtil.enable(target);
-
-        sender.sendMessage(PlugMan.getInstance().getMessageFormatter().format("restart.restarted", target.getName()));
+        sender.sendMessage(main.getInstance().getMessageFormatter().format("info.header", name));
+        sender.sendMessage(main.getInstance().getMessageFormatter().format(false, "info.version", version));
+        sender.sendMessage(main.getInstance().getMessageFormatter().format(false, "info.authors", authors));
+        sender.sendMessage(main.getInstance().getMessageFormatter().format(false, "info.status", status));
+        if (!dependList.isEmpty()) sender.sendMessage(main.getInstance().getMessageFormatter().format(false, "info.depends", Joiner.on(", ").join(dependList)));
+        if (!softdependList.isEmpty()) sender.sendMessage(main.getInstance().getMessageFormatter().format(false, "info.softdepends", Joiner.on(", ").join(softdependList)));
 
     }
 }

@@ -1,10 +1,10 @@
-package org.flyingteam.mineblock.plugman.command;
+package org.flyingteam.mineblock.pluginmanager.command;
 
 /*
  * #%L
- * PlugMan
+ * main
  * %%
- * Copyright (C) 2010 - 2014 PlugMan
+ * Copyright (C) 2010 - 2014 main
  * %%
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -27,7 +27,7 @@ package org.flyingteam.mineblock.plugman.command;
  */
 
 
-import org.flyingteam.mineblock.plugman.PlugMan;
+import org.flyingteam.mineblock.pluginmanager.main;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -167,9 +167,9 @@ public abstract class AbstractCommand {
      * Sends the usage message to the sender.
      */
     public void sendUsage() {
-        sender.sendMessage(PlugMan.getInstance().getMessageFormatter().format(false, "error.usage.command", name));
-        sender.sendMessage(PlugMan.getInstance().getMessageFormatter().format(false, "error.usage.description", description));
-        sender.sendMessage(PlugMan.getInstance().getMessageFormatter().format(false, "error.usage.usage", usage));
+        sender.sendMessage(main.getInstance().getMessageFormatter().format(false, "error.usage.command", name));
+        sender.sendMessage(main.getInstance().getMessageFormatter().format(false, "error.usage.description", description));
+        sender.sendMessage(main.getInstance().getMessageFormatter().format(false, "error.usage.usage", usage));
     }
 
     /**

@@ -1,10 +1,10 @@
-package org.flyingteam.mineblock.plugman.util;
+package org.flyingteam.mineblock.pluginmanager.util;
 
 /*
  * #%L
- * PlugMan
+ * main
  * %%
- * Copyright (C) 2010 - 2014 PlugMan
+ * Copyright (C) 2010 - 2014 main
  * %%
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -36,7 +36,7 @@ import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import org.flyingteam.mineblock.plugman.PlugMan;
+import org.flyingteam.mineblock.pluginmanager.main;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -300,7 +300,7 @@ public class PluginUtil {
      * @return whether the plugin is ignored
      */
     public static boolean isIgnored(String plugin) {
-        for (String name : PlugMan.getInstance().getIgnoredPlugins()) {
+        for (String name : main.getInstance().getIgnoredPlugins()) {
             if (name.equalsIgnoreCase(plugin)) {
                 return true;
             }
@@ -331,7 +331,7 @@ public class PluginUtil {
         File pluginDir = new File("plugins");
 
         if (!pluginDir.isDirectory()) {
-            return PlugMan.getInstance().getMessageFormatter().format("load.plugin-directory");
+            return main.getInstance().getMessageFormatter().format("load.plugin-directory");
         }
 
         File pluginFile = new File(pluginDir, name + ".jar");
@@ -340,13 +340,13 @@ public class PluginUtil {
             for (File f : pluginDir.listFiles()) {
                 if (f.getName().endsWith(".jar")) {
                     try {
-                        PluginDescriptionFile desc = PlugMan.getInstance().getPluginLoader().getPluginDescription(f);
+                        PluginDescriptionFile desc = main.getInstance().getPluginLoader().getPluginDescription(f);
                         if (desc.getName().equalsIgnoreCase(name)) {
                             pluginFile = f;
                             break;
                         }
                     } catch (InvalidDescriptionException e) {
-                        return PlugMan.getInstance().getMessageFormatter().format("load.cannot-find");
+                        return main.getInstance().getMessageFormatter().format("load.cannot-find");
                     }
                 }
             }
@@ -356,16 +356,16 @@ public class PluginUtil {
             target = Bukkit.getPluginManager().loadPlugin(pluginFile);
         } catch (InvalidDescriptionException e) {
             e.printStackTrace();
-            return PlugMan.getInstance().getMessageFormatter().format("load.invalid-description");
+            return main.getInstance().getMessageFormatter().format("load.invalid-description");
         } catch (InvalidPluginException e) {
             e.printStackTrace();
-            return PlugMan.getInstance().getMessageFormatter().format("load.invalid-plugin");
+            return main.getInstance().getMessageFormatter().format("load.invalid-plugin");
         }
 
         target.onLoad();
         Bukkit.getPluginManager().enablePlugin(target);
 
-        return PlugMan.getInstance().getMessageFormatter().format("load.loaded", target.getName());
+        return main.getInstance().getMessageFormatter().format("load.loaded", target.getName());
 
     }
 
@@ -446,10 +446,10 @@ public class PluginUtil {
 
             } catch (NoSuchFieldException e) {
                 e.printStackTrace();
-                return PlugMan.getInstance().getMessageFormatter().format("unload.failed", name);
+                return main.getInstance().getMessageFormatter().format("unload.failed", name);
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
-                return PlugMan.getInstance().getMessageFormatter().format("unload.failed", name);
+                return main.getInstance().getMessageFormatter().format("unload.failed", name);
             }
 
         }
@@ -518,7 +518,7 @@ public class PluginUtil {
         // This tries to get around the issue where Windows refuses to unlock jar files that were previously loaded into the JVM.
         System.gc();
 
-        return PlugMan.getInstance().getMessageFormatter().format("unload.unloaded", name);
+        return main.getInstance().getMessageFormatter().format("unload.unloaded", name);
 
     }
 
