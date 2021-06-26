@@ -4,7 +4,7 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.flyingteam.mineblock</groupId>
+    <groupId>cc.mineblock</groupId>
     <artifactId>MineBlockPluginManager</artifactId>
     <version>2.1.7</version>
     <packaging>jar</packaging>
@@ -17,8 +17,8 @@
 
     <developers>
         <developer>
-            <name>MineBlock</name>
-            <email>service@mineblock.ml</email>
+            <name>DreamVoid</name>
+            <email>45266046+DreamVoid@users.noreply.github.com</email>
             <id>MineBlock</id>
             <roles>
                 <role>Lead Developer</role>

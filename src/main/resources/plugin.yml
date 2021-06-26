@@ -1,5 +1,5 @@
 name: MineBlockPluginManager
-main: org.flyingteam.mineblock.pluginmanager.main
+main: org.mineblock.pluginmanager.bukkit.BukkitPlugin
 version: 2.1.7
 description: MineBlock 插件管理
 prefix: MineBlockPlugin
@@ -8,7 +8,7 @@ author: MineBlock Team.
 api-version: 1.13
 commands:
   mpm:
-    description: 插件主命令
+    description: MineBlockPluginManager 插件主命令
     permission: mineblock.pluginmanager.use
     usage: /mpm (help|dump)
            /mpm list [-v]
