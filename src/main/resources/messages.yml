@@ -1,12 +1,12 @@
 ###
-# Custom Messaging File.
+# è‡ªå®šä¹‰æ¶ˆæ¯æ–‡ä»¶
 #
 # Messaging can include any of the formatting codes found on http://minecraft.gamepedia.com/Formatting_codes and must use the '&' character to denote them.
 # Make sure to include the single quotes around the custom messages.
 # With new updates, this is subject to change and previous versions might not display information properly. Changes will be noted in the changelog.
 ###
 
-prefix: '[MineBlockPlugin] '
+prefix: ''
 check:
   header: '&9Retrieving plugin versions...'
   not-found: '&9Plugin not installed - latest available version is "{0}".'
@@ -20,70 +20,70 @@ check:
   unknown-player: '&cUnknown (Installed): {0}'
   not-available: '&cVersion information for {0} is unavailable.'
 disable:
-  all: '&aËùÓĞ²å¼şÒÑ½ûÓÃ.'
-  already-disabled: '&c{0} ÒÑ±»½ûÓÃ.'
-  disabled: '&a{0} ÒÑ½ûÓÃ.'
+  all: '&aæ‰€æœ‰æ’ä»¶å·²ç¦ç”¨.'
+  already-disabled: '&c{0} å·²è¢«ç¦ç”¨.'
+  disabled: '&a{0} å·²ç¦ç”¨.'
 dump:
-  dumped: '&a²å¼şÒÑÊä³öµ½ {0}.'
-  error: '&cÎŞ·¨Êä³öµ½ÎÄ¼ş.'
+  dumped: '&aæ’ä»¶å·²è¾“å‡ºåˆ° {0}.'
+  error: '&cæ— æ³•è¾“å‡ºåˆ°æ–‡ä»¶.'
 enable:
-  all: '&aËùÓĞ²å¼şÒÑÆôÓÃ.'
-  already-enabled: '&c{0} ÒÑ±»ÆôÓÃ.'
-  enabled: '&a{0} ÒÑÆôÓÃ.'
+  all: '&aæ‰€æœ‰æ’ä»¶å·²å¯ç”¨.'
+  already-enabled: '&c{0} å·²è¢«å¯ç”¨.'
+  enabled: '&a{0} å·²å¯ç”¨.'
 error:
-  ignored: '&c´Ë²å¼şÒÑÆÁ±Î²Ù×÷.'
-  invalid-plugin: '&cÕâÊÇ¸öÎŞĞ§µÄ²å¼ş.'
-  no-permission: '&cÄãÃ»ÓĞÈ¨ÏŞÊ¹ÓÃ´ËÃüÁî.'
-  specify-plugin: '&cÄã±ØĞëÖ¸¶¨Ò»¸ö²å¼ş.'
-  specify-command: '&cÄã±ØĞëÖ¸¶¨Ò»¸öÃüÁî.'
+  ignored: '&cæ­¤æ’ä»¶å·²å±è”½æ“ä½œ.'
+  invalid-plugin: '&cè¿™æ˜¯ä¸ªæ— æ•ˆçš„æ’ä»¶.'
+  no-permission: '&cä½ æ²¡æœ‰æƒé™ä½¿ç”¨æ­¤å‘½ä»¤.'
+  specify-plugin: '&cä½ å¿…é¡»æŒ‡å®šä¸€ä¸ªæ’ä»¶.'
+  specify-command: '&cä½ å¿…é¡»æŒ‡å®šä¸€ä¸ªå‘½ä»¤.'
   usage:
-    command: '&cÃüÁî: {0}'
-    description: '&aÃèÊö: {0}'
-    usage: '&eÓÃ·¨: {0}'
+    command: '&cå‘½ä»¤: {0}'
+    description: '&aæè¿°: {0}'
+    usage: '&eç”¨æ³•: {0}'
 help:
-  header: '&6&lMine&f&lBlock&a²å¼ş¹ÜÀí&6°ïÖú²Ëµ¥'
-  help: '&6/mpm help&f: ÏÔÊ¾´Ë°ïÖú.'
-  list: '&6/mpm list [-v]&f: ÁĞ³öËùÓĞ²å¼ş (-v ÏÔÊ¾°æ±¾).'
-  dump: '&6/mpm dump&f: Êä³ö²å¼şĞÅÏ¢µ½ÎÄ¼ş.'
-  info: '&6/mpm info <plugin>&f: ²é¿´²å¼şĞÅÏ¢.'
-  usage: '&6/mpm usage <plugin>&f: ÁĞ³ö²å¼ş×¢²áµÄÃüÁî.'
-  lookup: '&6/mpm lookup <command>&f: ²éÑ¯Ö¸¶¨ÃüÁî×¢²áµÄ²å¼ş.'
-  enable: '&6/mpm enable <plugin|all>&f: ÆôÓÃÒ»¸ö²å¼ş.'
-  disable: '&6/mpm disable <plugin|all>&f: ½ûÓÃÒ»¸ö²å¼ş.'
-  restart: '&6/mpm restart <plugin|all>&f: ÖØĞÂÆô¶¯²å¼ş.'
-  load: '&6/mpm load <plugin>&f: ¼ÓÔØÒ»¸ö²å¼ş.'
-  reload: '&6/mpm reload <plugin|all>&f: ÖØÔØÒ»¸ö²å¼ş.'
-  unload: '&6/mpm unload <plugin>&f: Ğ¶ÔØÒ»¸ö²å¼ş.'
-  check: '&6/mpm check <plugin|all> [-f]&f: ¼ì²é²å¼ş¸üĞÂ (-f dumps to file for all).'
+  header: '&6&lMine&f&lBlock&aæ’ä»¶ç®¡ç†&6å¸®åŠ©èœå•'
+  help: '&6/mpm help&f: æ˜¾ç¤ºæ­¤å¸®åŠ©.'
+  list: '&6/mpm list [-v]&f: åˆ—å‡ºæ‰€æœ‰æ’ä»¶ (-v æ˜¾ç¤ºç‰ˆæœ¬).'
+  dump: '&6/mpm dump&f: è¾“å‡ºæ’ä»¶ä¿¡æ¯åˆ°æ–‡ä»¶.'
+  info: '&6/mpm info <plugin>&f: æŸ¥çœ‹æ’ä»¶ä¿¡æ¯.'
+  usage: '&6/mpm usage <plugin>&f: åˆ—å‡ºæ’ä»¶æ³¨å†Œçš„å‘½ä»¤.'
+  lookup: '&6/mpm lookup <command>&f: æŸ¥è¯¢æŒ‡å®šå‘½ä»¤æ³¨å†Œçš„æ’ä»¶.'
+  enable: '&6/mpm enable <plugin|all>&f: å¯ç”¨ä¸€ä¸ªæ’ä»¶.'
+  disable: '&6/mpm disable <plugin|all>&f: ç¦ç”¨ä¸€ä¸ªæ’ä»¶.'
+  restart: '&6/mpm restart <plugin|all>&f: é‡æ–°å¯åŠ¨æ’ä»¶.'
+  load: '&6/mpm load <plugin>&f: åŠ è½½ä¸€ä¸ªæ’ä»¶.'
+  reload: '&6/mpm reload <plugin|all>&f: é‡è½½ä¸€ä¸ªæ’ä»¶.'
+  unload: '&6/mpm unload <plugin>&f: å¸è½½ä¸€ä¸ªæ’ä»¶.'
+  check: '&6/mpm check <plugin|all> [-f]&f: æ£€æŸ¥æ’ä»¶æ›´æ–° (-f dumps to file for all).'
 info:
-  header: '²å¼şĞÅÏ¢: {0}'
-  version: '&6- °æ±¾: &a{0}'
-  authors: '&6- ×÷Õß: &a{0}'
-  status: '&6- ×´Ì¬: {0}'
-  depends: '&6- ÒÀÀµ: {0}'
-  softdepends: '&6- ÈíÒÀÀµ: &a{0}'
+  header: 'æ’ä»¶ä¿¡æ¯: {0}'
+  version: '&6- ç‰ˆæœ¬: &a{0}'
+  authors: '&6- ä½œè€…: &a{0}'
+  status: '&6- çŠ¶æ€: {0}'
+  depends: '&6- ä¾èµ–: {0}'
+  softdepends: '&6- è½¯ä¾èµ–: &a{0}'
 list:
-  list: '&a²å¼ş ({0})&f: {1}'
+  list: '&aæ’ä»¶ ({0})&f: {1}'
 load:
-  already-loaded: '&c{0} ÒÑ±»¼ÓÔØ.'
-  cannot-find: '&cÎŞ·¨ÕÒµ½Ö¸¶¨µÄ²å¼ş.'
-  invalid-description: '&c´Ë²å¼şÃèÊöÎŞĞ§.'
-  invalid-plugin: '&c´ËÎÄ¼ş²»ÊÇÓĞĞ§µÄ²å¼şÎÄ¼ş.'
-  loaded: '&a{0} ÒÑ¼ÓÔØ²¢ÒÑÆôÓÃ.'
-  plugin-dir: '&cÕÒ²»µ½²å¼şÄ¿Â¼.'
+  already-loaded: '&c{0} å·²è¢«åŠ è½½.'
+  cannot-find: '&cæ— æ³•æ‰¾åˆ°æŒ‡å®šçš„æ’ä»¶.'
+  invalid-description: '&cæ­¤æ’ä»¶æè¿°æ— æ•ˆ.'
+  invalid-plugin: '&cæ­¤æ–‡ä»¶ä¸æ˜¯æœ‰æ•ˆçš„æ’ä»¶æ–‡ä»¶.'
+  loaded: '&a{0} å·²åŠ è½½å¹¶å·²å¯ç”¨.'
+  plugin-dir: '&cæ‰¾ä¸åˆ°æ’ä»¶ç›®å½•.'
 lookup:
-  found: '&6/{0}ÒÑÓÉ{1}×¢²á.'
-  not-found: '&cÃüÁî"/{0}"Î´±»ÈÎºÎ²å¼şµÄplugin.yml×¢²á'
+  found: '&6/{0}å·²ç”±{1}æ³¨å†Œ.'
+  not-found: '&cå‘½ä»¤"/{0}"æœªè¢«ä»»ä½•æ’ä»¶çš„plugin.ymlæ³¨å†Œ'
 reload:
-  all: '&aËùÓĞ²å¼şÒÑÖØÔØ.'
-  reloaded: '&a{0} ÒÑÖØÔØ.'
+  all: '&aæ‰€æœ‰æ’ä»¶å·²é‡è½½.'
+  reloaded: '&a{0} å·²é‡è½½.'
 restart:
-  all: '&aËùÓĞ²å¼şÒÑÖØĞÂÆô¶¯.'
-  restarted: '&a{0} ÒÑÖØĞÂÆô¶¯.'
+  all: '&aæ‰€æœ‰æ’ä»¶å·²é‡æ–°å¯åŠ¨.'
+  restarted: '&a{0} å·²é‡æ–°å¯åŠ¨.'
 unload:
-  failed: '&cÎŞ·¨Ğ¶ÔØ {0}.'
-  unloaded: '&a{0} ÒÑĞ¶ÔØ.'
+  failed: '&cæ— æ³•å¸è½½ {0}.'
+  unloaded: '&a{0} å·²å¸è½½.'
 updater:
   available: '&aA new update is available'
 usage:
-  usage: '&6ÃüÁî: &7{0}'
+  usage: '&6å‘½ä»¤: &7{0}'
