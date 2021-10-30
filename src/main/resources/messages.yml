@@ -20,22 +20,22 @@ check:
   unknown-player: '&cUnknown (Installed): {0}'
   not-available: '&cVersion information for {0} is unavailable.'
 disable:
-  all: '&a所有插件已禁用.'
-  already-disabled: '&c{0} 已被禁用.'
-  disabled: '&a{0} 已禁用.'
+  all: '&a所有插件已禁用！'
+  already-disabled: '&c{0} 已被禁用！'
+  disabled: '&a{0} 已禁用！'
 dump:
-  dumped: '&a插件已输出到 {0}.'
-  error: '&c无法输出到文件.'
+  dumped: '&a插件已输出到 {0}！'
+  error: '&c无法输出到文件！'
 enable:
-  all: '&a所有插件已启用.'
-  already-enabled: '&c{0} 已被启用.'
-  enabled: '&a{0} 已启用.'
+  all: '&a所有插件已启用！'
+  already-enabled: '&c{0} 已被启用！'
+  enabled: '&a{0} 已启用！'
 error:
-  ignored: '&c此插件已屏蔽操作.'
-  invalid-plugin: '&c这是个无效的插件.'
-  no-permission: '&c你没有权限使用此命令.'
-  specify-plugin: '&c你必须指定一个插件.'
-  specify-command: '&c你必须指定一个命令.'
+  ignored: '&c此插件已屏蔽操作！'
+  invalid-plugin: '&c这是个无效的插件！'
+  no-permission: '&c你没有权限使用此命令！'
+  specify-plugin: '&c你必须指定一个插件！'
+  specify-command: '&c你必须指定一个命令！'
   usage:
     command: '&c命令: {0}'
     description: '&a描述: {0}'
@@ -65,25 +65,25 @@ info:
 list:
   list: '&a插件 ({0})&f: {1}'
 load:
-  already-loaded: '&c{0} 已被加载.'
-  cannot-find: '&c无法找到指定的插件.'
-  invalid-description: '&c此插件描述无效.'
-  invalid-plugin: '&c此文件不是有效的插件文件.'
-  loaded: '&a{0} 已加载并已启用.'
-  plugin-dir: '&c找不到插件目录.'
+  already-loaded: '&c{0} 已被加载！'
+  cannot-find: '&c无法找到指定的插件！'
+  invalid-description: '&c此插件描述无效！'
+  invalid-plugin: '&c此文件不是有效的插件文件！'
+  loaded: '&a{0} 已加载并已启用！'
+  plugin-dir: '&c找不到插件目录！'
 lookup:
-  found: '&6/{0}已由{1}注册.'
-  not-found: '&c命令"/{0}"未被任何插件的plugin.yml注册'
+  found: '&6/{0} 已由 {1} 注册！'
+  not-found: '&c命令"/{0}"未被任何插件的 plugin.yml 注册！'
 reload:
-  all: '&a所有插件已重载.'
-  reloaded: '&a{0} 已重载.'
+  all: '&a所有插件已重载！'
+  reloaded: '&a{0} 已重载！'
 restart:
-  all: '&a所有插件已重新启动.'
-  restarted: '&a{0} 已重新启动.'
+  all: '&a所有插件已重新启动！'
+  restarted: '&a{0} 已重新启动！'
 unload:
-  failed: '&c无法卸载 {0}.'
-  unloaded: '&a{0} 已卸载.'
+  failed: '&c无法卸载 {0}！'
+  unloaded: '&a{0} 已卸载！'
 updater:
-  available: '&aA new update is available'
+  available: '&a新的更新现在可用！'
 usage:
   usage: '&6命令: &7{0}'
