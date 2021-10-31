@@ -9,35 +9,6 @@
     <version>2.1.7</version>
     <packaging>jar</packaging>
 
-    <name>MineBlockPluginManager</name>
-    <description>MineBlock plugin manager</description>
-    <url>http://dev.bukkit.org/bukkit-plugins/plugman/</url>
-
-    <inceptionYear>2010</inceptionYear>
-
-    <developers>
-        <developer>
-            <name>DreamVoid</name>
-            <email>45266046+DreamVoid@users.noreply.github.com</email>
-            <id>MineBlock</id>
-            <roles>
-                <role>Lead Developer</role>
-            </roles>
-        </developer>
-    </developers>
-
-    <licenses>
-        <license>
-            <name>MIT</name>
-            <url>http://opensource.org/licenses/MIT</url>
-        </license>
-    </licenses>
-
-    <issueManagement>
-        <system>GitHub</system>
-        <url>https://github.com/DreamVoid/MineBlockPluginManager/issues</url>
-    </issueManagement>
-
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
@@ -76,30 +47,6 @@
     <build>
         <finalName>${project.artifactId}</finalName>
         <plugins>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>license-maven-plugin</artifactId>
-                <version>1.8</version>
-                <configuration>
-                    <licenseName>mit</licenseName>
-                    <licenseResolver>${project.baseUri}/license</licenseResolver>
-                    <organizationName>${project.artifactId}</organizationName>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>first</id>
-                        <goals>
-                            <goal>update-file-header</goal>
-                        </goals>
-                        <phase>process-sources</phase>
-                        <configuration>
-                            <includes>
-                                <include>src/main/java/org/flyingteam/mineblock/*</include>
-                            </includes>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
